@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:river/loseDirections/lose_direction0.dart';
 import 'package:river/loseDirections/lose_direction1.dart';
 import 'package:river/loseDirections/lose_direction2.dart';
 import 'package:river/loseDirections/lose_direction3.dart';
@@ -17,7 +18,6 @@ class unluckey extends StatelessWidget {
       children: [
         //shufull(ref),
         decideDirection()
-        //directionState == 1 ? const loseDirection1() : const loseDirection2()
         // Text(list[1]),
         // Text(list[2]),
         // Text(list[3]),
@@ -27,7 +27,7 @@ class unluckey extends StatelessWidget {
 
   decideDirection() {
     //演出を決定する乱数を生成
-    final directionState = math.Random().nextInt(3);
+    final directionState = math.Random().nextInt(10);
 
     //乱数により演出を出し分ける
     switch (directionState) {
@@ -44,7 +44,9 @@ class unluckey extends StatelessWidget {
           key: key,
         );
       default:
-        return const Text("予測される値ではありません");
+        return loseDirection0(
+          key: key,
+        );
     }
   }
 }
