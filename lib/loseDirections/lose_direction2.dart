@@ -6,10 +6,12 @@ class loseDirection2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: const [
-        Text("2"),
-        Text("0"),
-        Text("2"),
+      // mainAxisAlignment: MainAxisAlignment.center,
+      // crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(child: Image.asset('images/two.png')),
+        Expanded(child: Image.asset('images/zero.png')),
+        Expanded(child: Image.asset('images/two.png')),
       ],
     );
   }

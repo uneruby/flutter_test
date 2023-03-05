@@ -29,7 +29,7 @@ class Sample extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: <Widget>[
               //当たりorハズレ図柄
               state == 5
                   ? luckey(

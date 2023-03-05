@@ -12,17 +12,7 @@ class unluckey extends StatelessWidget {
   Widget build(BuildContext context) {
     // var list = ["0", "1", "2", "3", "4", "5", "6", "7"];
     // list.shuffle();
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        //shufull(ref),
-        decideDirection()
-        // Text(list[1]),
-        // Text(list[2]),
-        // Text(list[3]),
-      ],
-    );
+    return Container(alignment: Alignment.center, child: decideDirection());
   }
 
   decideDirection() {
