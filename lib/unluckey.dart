@@ -10,8 +10,6 @@ class unluckey extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var list = ["0", "1", "2", "3", "4", "5", "6", "7"];
-    // list.shuffle();
     return Container(alignment: Alignment.center, child: decideDirection());
   }
 
