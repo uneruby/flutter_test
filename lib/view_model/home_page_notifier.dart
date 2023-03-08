@@ -14,24 +14,39 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
   }
 
   // 表示状態に切り替える
-  void setAppearenceTime() async {
-    state = state.copyWith(visible: true);
-    print("setAppearenceTime: 更新後の値 ${state.visible}");
+  void setAppearenceTimeL() async {
+    state = state.copyWith(visibleL: true);
+    print("setAppearenceTime: 更新後の値 ${state.visibleL}");
+  }
+
+  void setAppearenceTimeC() async {
+    state = state.copyWith(visibleC: true);
+    print("setAppearenceTime: 更新後の値 ${state.visibleC}");
+  }
+
+  void setAppearenceTimeR() async {
+    state = state.copyWith(visibleR: true);
+    print("setAppearenceTime: 更新後の値 ${state.visibleR}");
   }
 
   // すべてのカウントを0に戻す
   void decideResult() async {
     state = state.copyWith(
-      visible: false,
+      visibleL: false,
+      visibleC: false,
+      visibleR: false,
       result: math.Random().nextBool(),
     );
     print("setResult: 更新後の値 ${state.result}");
   }
 
+  // 抽選開始
   void lotteryStart() async {
     decideResult();
-    Timer(Duration(seconds: 1), setAppearenceTime);
     setIndex();
+    Timer(Duration(seconds: 1), setAppearenceTimeL);
+    Timer(Duration(seconds: 2), setAppearenceTimeR);
+    Timer(Duration(seconds: 3), setAppearenceTimeC);
     //setAppearenceTime();
   }
 }

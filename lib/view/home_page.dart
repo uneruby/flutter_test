@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:river/model/home_page_state.dart';
 import 'package:river/view/home_page.dart';
 import 'package:river/view_model/home_page_notifier.dart';
+import 'package:river/model/num_images.dart';
 
 import 'dart:math' as math;
 
@@ -20,6 +21,8 @@ class HomePage extends ConsumerWidget {
     // provider（状態の操作）
     final _homePageNotifier = ref.watch(homePageProvider.notifier);
 
+    numImages images = numImages();
+
     return Scaffold(
       body: SizedBox(
           width: double.infinity,
@@ -31,16 +34,19 @@ class HomePage extends ConsumerWidget {
                 children: [
                   Expanded(
                       child: Visibility(
-                          visible: _homePageState.visible,
-                          child: Image.asset('images/seven.png'))),
+                          visible: _homePageState.visibleL,
+                          child:
+                              Image.asset(images.items[_homePageState.index]))),
                   Expanded(
                       child: Visibility(
-                          visible: _homePageState.visible,
-                          child: Image.asset('images/seven.png'))),
+                          visible: _homePageState.visibleC,
+                          child:
+                              Image.asset(images.items[_homePageState.index]))),
                   Expanded(
                       child: Visibility(
-                          visible: _homePageState.visible,
-                          child: Image.asset('images/seven.png'))),
+                          visible: _homePageState.visibleR,
+                          child:
+                              Image.asset(images.items[_homePageState.index]))),
                 ],
               ),
               ElevatedButton(
