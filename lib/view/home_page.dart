@@ -35,18 +35,18 @@ class HomePage extends ConsumerWidget {
                   Expanded(
                       child: Visibility(
                           visible: _homePageState.visibleL,
-                          child:
-                              Image.asset(images.items[_homePageState.index]))),
+                          child: Image.asset(
+                              images.items[_homePageState.indexL]))),
                   Expanded(
                       child: Visibility(
                           visible: _homePageState.visibleC,
-                          child:
-                              Image.asset(images.items[_homePageState.index]))),
+                          child: Image.asset(
+                              images.items[_homePageState.indexR]))),
                   Expanded(
                       child: Visibility(
                           visible: _homePageState.visibleR,
-                          child:
-                              Image.asset(images.items[_homePageState.index]))),
+                          child: Image.asset(
+                              images.items[_homePageState.indexC]))),
                 ],
               ),
               ElevatedButton(

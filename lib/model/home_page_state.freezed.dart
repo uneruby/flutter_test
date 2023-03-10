@@ -16,7 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomePageState {
-  int get index => throw _privateConstructorUsedError;
+  int get indexL => throw _privateConstructorUsedError;
+  int get indexC => throw _privateConstructorUsedError;
+  int get indexR => throw _privateConstructorUsedError;
   bool get visibleL => throw _privateConstructorUsedError;
   bool get visibleC => throw _privateConstructorUsedError;
   bool get visibleR => throw _privateConstructorUsedError;
@@ -34,7 +36,13 @@ abstract class $HomePageStateCopyWith<$Res> {
       _$HomePageStateCopyWithImpl<$Res, HomePageState>;
   @useResult
   $Res call(
-      {int index, bool visibleL, bool visibleC, bool visibleR, bool result});
+      {int indexL,
+      int indexC,
+      int indexR,
+      bool visibleL,
+      bool visibleC,
+      bool visibleR,
+      bool result});
 }
 
 /// @nodoc
@@ -50,16 +58,26 @@ class _$HomePageStateCopyWithImpl<$Res, $Val extends HomePageState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = null,
+    Object? indexL = null,
+    Object? indexC = null,
+    Object? indexR = null,
     Object? visibleL = null,
     Object? visibleC = null,
     Object? visibleR = null,
     Object? result = null,
   }) {
     return _then(_value.copyWith(
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
+      indexL: null == indexL
+          ? _value.indexL
+          : indexL // ignore: cast_nullable_to_non_nullable
+              as int,
+      indexC: null == indexC
+          ? _value.indexC
+          : indexC // ignore: cast_nullable_to_non_nullable
+              as int,
+      indexR: null == indexR
+          ? _value.indexR
+          : indexR // ignore: cast_nullable_to_non_nullable
               as int,
       visibleL: null == visibleL
           ? _value.visibleL
@@ -90,7 +108,13 @@ abstract class _$$_HomePageStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int index, bool visibleL, bool visibleC, bool visibleR, bool result});
+      {int indexL,
+      int indexC,
+      int indexR,
+      bool visibleL,
+      bool visibleC,
+      bool visibleR,
+      bool result});
 }
 
 /// @nodoc
@@ -104,16 +128,26 @@ class __$$_HomePageStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? index = null,
+    Object? indexL = null,
+    Object? indexC = null,
+    Object? indexR = null,
     Object? visibleL = null,
     Object? visibleC = null,
     Object? visibleR = null,
     Object? result = null,
   }) {
     return _then(_$_HomePageState(
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
+      indexL: null == indexL
+          ? _value.indexL
+          : indexL // ignore: cast_nullable_to_non_nullable
+              as int,
+      indexC: null == indexC
+          ? _value.indexC
+          : indexC // ignore: cast_nullable_to_non_nullable
+              as int,
+      indexR: null == indexR
+          ? _value.indexR
+          : indexR // ignore: cast_nullable_to_non_nullable
               as int,
       visibleL: null == visibleL
           ? _value.visibleL
@@ -139,15 +173,23 @@ class __$$_HomePageStateCopyWithImpl<$Res>
 
 class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
   const _$_HomePageState(
-      {this.index = 7,
-      this.visibleL = false,
-      this.visibleC = false,
-      this.visibleR = false,
+      {this.indexL = 7,
+      this.indexC = 7,
+      this.indexR = 7,
+      this.visibleL = true,
+      this.visibleC = true,
+      this.visibleR = true,
       this.result = false});
 
   @override
   @JsonKey()
-  final int index;
+  final int indexL;
+  @override
+  @JsonKey()
+  final int indexC;
+  @override
+  @JsonKey()
+  final int indexR;
   @override
   @JsonKey()
   final bool visibleL;
@@ -163,7 +205,7 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomePageState(index: $index, visibleL: $visibleL, visibleC: $visibleC, visibleR: $visibleR, result: $result)';
+    return 'HomePageState(indexL: $indexL, indexC: $indexC, indexR: $indexR, visibleL: $visibleL, visibleC: $visibleC, visibleR: $visibleR, result: $result)';
   }
 
   @override
@@ -171,7 +213,9 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'HomePageState'))
-      ..add(DiagnosticsProperty('index', index))
+      ..add(DiagnosticsProperty('indexL', indexL))
+      ..add(DiagnosticsProperty('indexC', indexC))
+      ..add(DiagnosticsProperty('indexR', indexR))
       ..add(DiagnosticsProperty('visibleL', visibleL))
       ..add(DiagnosticsProperty('visibleC', visibleC))
       ..add(DiagnosticsProperty('visibleR', visibleR))
@@ -183,7 +227,9 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomePageState &&
-            (identical(other.index, index) || other.index == index) &&
+            (identical(other.indexL, indexL) || other.indexL == indexL) &&
+            (identical(other.indexC, indexC) || other.indexC == indexC) &&
+            (identical(other.indexR, indexR) || other.indexR == indexR) &&
             (identical(other.visibleL, visibleL) ||
                 other.visibleL == visibleL) &&
             (identical(other.visibleC, visibleC) ||
@@ -194,8 +240,8 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, index, visibleL, visibleC, visibleR, result);
+  int get hashCode => Object.hash(runtimeType, indexL, indexC, indexR, visibleL,
+      visibleC, visibleR, result);
 
   @JsonKey(ignore: true)
   @override
@@ -206,14 +252,20 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
 
 abstract class _HomePageState implements HomePageState {
   const factory _HomePageState(
-      {final int index,
+      {final int indexL,
+      final int indexC,
+      final int indexR,
       final bool visibleL,
       final bool visibleC,
       final bool visibleR,
       final bool result}) = _$_HomePageState;
 
   @override
-  int get index;
+  int get indexL;
+  @override
+  int get indexC;
+  @override
+  int get indexR;
   @override
   bool get visibleL;
   @override

@@ -9,4 +9,6 @@ class numImages {
     'images/six.png',
     'images/seven.png',
   ];
+
+  final indexs = [0, 1, 2, 3, 4, 5, 6, 7];
 }
