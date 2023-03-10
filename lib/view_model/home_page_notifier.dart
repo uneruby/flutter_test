@@ -8,41 +8,24 @@ import 'package:river/model/num_images.dart';
 class HomePageNotifier extends StateNotifier<HomePageState> {
   // 初期値の指定
   HomePageNotifier() : super(const HomePageState());
+  // 図柄リストのインスタンス生成
   numImages num = numImages();
 
   // 表示する図柄を決定する乱数を生成する
-  void setIndexL(int index) async {
-    state = state.copyWith(indexL: index);
+  void setIndex(int indexL, indexC, indexR) async {
+    state = state.copyWith(indexL: indexL, indexC: indexC, indexR: indexR);
     //print("setIndex: 更新後の値 ${state.indexL}");
   }
 
-  void setIndexC(int index) async {
-    state = state.copyWith(indexC: index);
-    //print("setIndex: 更新後の値 ${state.indexC}");
-  }
-
-  void setIndexR(int index) async {
-    state = state.copyWith(indexR: index);
-    //print("setIndex: 更新後の値 ${state.indexR}");
-  }
-
   // 表示状態に切り替える
-  Future setAppearenceTimeL() async {
-    await Future.delayed(const Duration(seconds: 1));
+  Future setAppearenceTime(int delayL, delayR, delayC) async {
+    await Future.delayed(Duration(milliseconds: delayL));
     state = state.copyWith(visibleL: true);
-    //print("setAppearenceTime: 更新後の値 ${state.visibleL}");
-  }
-
-  Future setAppearenceTimeC() async {
-    await Future.delayed(const Duration(seconds: 1));
-    state = state.copyWith(visibleC: true);
-    //print("setAppearenceTime: 更新後の値 ${state.visibleC}");
-  }
-
-  Future setAppearenceTimeR() async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(Duration(milliseconds: delayR));
     state = state.copyWith(visibleR: true);
-    //print("setAppearenceTime: 更新後の値 ${state.visibleR}");
+    await Future.delayed(Duration(milliseconds: delayC));
+    state = state.copyWith(visibleC: true);
+    //print("setAppearenceTime: 更新後の値 ${state.visibleL}");
   }
 
   // すべてのカウントを0に戻す
@@ -61,34 +44,30 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
     //print(state.visibleL);
     await decideResult();
     if (state.result) {
+      // 演出決定用の乱数生成
       var winDirection = math.Random().nextInt(1);
+      //図柄決定用のシャッフル
+      num.indexs.shuffle();
       switch (winDirection) {
         case 0:
-          var index = math.Random().nextInt(8);
-          setIndexL(num.indexs[index]);
-          setIndexC(num.indexs[index]);
-          setIndexR(num.indexs[index]);
-          await setAppearenceTimeL();
-          await setAppearenceTimeR();
-          await setAppearenceTimeC();
+          setIndex(num.indexs[0], num.indexs[0], num.indexs[0]);
+          await setAppearenceTime(500, 500, 500);
       }
     } else {
-      var loseDirection = math.Random().nextInt(1);
+      // 演出決定用の乱数生成
+      var loseDirection = math.Random().nextInt(2);
+      //図柄決定用のシャッフル
+      num.indexs.shuffle();
       switch (loseDirection) {
         case 0:
-          num.indexs.shuffle();
-          setIndexL(num.indexs[0]);
-          setIndexC(num.indexs[1]);
-          setIndexR(num.indexs[2]);
-          await setAppearenceTimeL();
-          await setAppearenceTimeR();
-          await setAppearenceTimeC();
+          setIndex(num.indexs[0], num.indexs[1], num.indexs[0]);
+          await setAppearenceTime(500, 500, 500);
+          break;
+        default:
+          setIndex(num.indexs[0], num.indexs[1], num.indexs[2]);
+          await setAppearenceTime(500, 500, 500);
       }
     }
-    // setIndex();
-    // await setAppearenceTimeL();
-    // await setAppearenceTimeR();
-    // await setAppearenceTimeC();
   }
 }
 

@@ -41,12 +41,12 @@ class HomePage extends ConsumerWidget {
                       child: Visibility(
                           visible: _homePageState.visibleC,
                           child: Image.asset(
-                              images.items[_homePageState.indexR]))),
+                              images.items[_homePageState.indexC]))),
                   Expanded(
                       child: Visibility(
                           visible: _homePageState.visibleR,
                           child: Image.asset(
-                              images.items[_homePageState.indexC]))),
+                              images.items[_homePageState.indexR]))),
                 ],
               ),
               ElevatedButton(
@@ -57,44 +57,3 @@ class HomePage extends ConsumerWidget {
     );
   }
 }
-
-//当たり・ハズレを決定する乱数の初期値を設定
-// final stateProvider = StateProvider<num>((ref) {
-//   return 0;
-// });
-
-// class Sample extends ConsumerWidget {
-//   const Sample({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref) {
-//     final state = ref.watch(stateProvider);
-
-//     return Scaffold(
-//       body: SizedBox(
-//           width: double.infinity,
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//             crossAxisAlignment: CrossAxisAlignment.center,
-//             children: <Widget>[
-//               //当たりorハズレ図柄
-//               state == 5
-//                   ? luckey(
-//                       key: key,
-//                     )
-//                   : unluckey(
-//                       key: key,
-//                     ),
-//               //抽選ボタン,
-//               ElevatedButton(onPressed: () => tapA(ref), child: const Text('A'))
-//             ],
-//           )),
-//     );
-//   }
-
-//   //当たり・ハズレを決定する乱数を生成
-//   tapA(WidgetRef ref) {
-//     final notifier = ref.read(stateProvider.notifier);
-//     notifier.state = math.Random().nextInt(7);
-//   }
-// }
