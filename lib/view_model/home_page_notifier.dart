@@ -49,14 +49,16 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
     //print("setResult: 更新後の値 ${state.result}");
   }
 
-  void setAngle() {
-    state = state.copyWith(handleAngle: 60);
+  Future setAngle() async {
+    //state = state.copyWith(handleAngle: 60);
+    print("変更前: $state.loopState");
+    state = state.copyWith(handleAngle: state.loopState ? 60 : 0);
+    print("変更後: $state.loopState");
   }
 
   // 抽選開始
   Future lotteryStart() async {
     //print(state.visibleL);
-    setAngle();
     await decideResult();
     if (state.result) {
       // 演出決定用の乱数生成
@@ -89,9 +91,10 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
   }
 
   void loopLottery() async {
-    state = state.copyWith(loopState: true);
+    state = state.copyWith(loopState: !state.loopState);
+    await setAngle();
     while (state.loopState) {
-      print("3:$state.loopState");
+      //print("3:$state.loopState");
       await lotteryStart();
     }
   }

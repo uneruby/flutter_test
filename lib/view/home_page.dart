@@ -1,17 +1,10 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-//import 'package:river/class/zugara.dart';
-// import 'package:river/lucky.dart';
-// import 'package:river/unluckey.dart';
-
 import 'package:river/model/home_page_state.dart';
 import 'package:river/view/home_page.dart';
 import 'package:river/view_model/home_page_notifier.dart';
 import 'package:river/model/num_images.dart';
-
-import 'dart:math' as math;
+import 'dart:math';
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -60,9 +53,6 @@ class HomePage extends ConsumerWidget {
                               images.items[_homePageState.indexR]))),
                 ],
               ),
-              // ElevatedButton(
-              //     onPressed: _homePageNotifier.loopLottery,
-              //     child: const Text("抽選")),
               SizedBox(
                   width: 100,
                   height: 100,
@@ -75,8 +65,6 @@ class HomePage extends ConsumerWidget {
                       child: Image.asset("images/handle.png"),
                     ),
                   ))
-
-              //GestureDetector(child: Image.asset("images/hanle.png"))
             ],
           )),
     );
