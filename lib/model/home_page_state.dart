@@ -15,5 +15,6 @@ class HomePageState with _$HomePageState {
     @Default(true) bool visibleC,
     @Default(true) bool visibleR,
     @Default(false) bool result,
+    @Default(false) bool loopState,
   }) = _HomePageState;
 }

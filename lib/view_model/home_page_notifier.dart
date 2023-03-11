@@ -28,19 +28,29 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
     //print("setAppearenceTime: 更新後の値 ${state.visibleL}");
   }
 
+  setResult() {
+    var temp = math.Random().nextInt(10);
+    var resultState = true;
+    if (temp == 1) {
+      return resultState = true;
+    } else {
+      return resultState = false;
+    }
+  }
+
   // すべてのカウントを0に戻す
   Future decideResult() async {
     state = state.copyWith(
       visibleL: false,
       visibleC: false,
       visibleR: false,
-      result: math.Random().nextBool(),
+      result: setResult(),
     );
     //print("setResult: 更新後の値 ${state.result}");
   }
 
   // 抽選開始
-  void lotteryStart() async {
+  Future lotteryStart() async {
     //print(state.visibleL);
     await decideResult();
     if (state.result) {
@@ -52,10 +62,11 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
         case 0:
           setIndex(num.indexs[0], num.indexs[0], num.indexs[0]);
           await setAppearenceTime(500, 500, 500);
+          state = state.copyWith(loopState: false);
       }
     } else {
       // 演出決定用の乱数生成
-      var loseDirection = math.Random().nextInt(2);
+      var loseDirection = math.Random().nextInt(5);
       //図柄決定用のシャッフル
       num.indexs.shuffle();
       switch (loseDirection) {
@@ -67,6 +78,14 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
           setIndex(num.indexs[0], num.indexs[1], num.indexs[2]);
           await setAppearenceTime(500, 500, 500);
       }
+    }
+  }
+
+  void loopLottery() async {
+    state = state.copyWith(loopState: true);
+    while (state.loopState) {
+      print("3:$state.loopState");
+      await lotteryStart();
     }
   }
 }

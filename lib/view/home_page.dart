@@ -50,7 +50,7 @@ class HomePage extends ConsumerWidget {
                 ],
               ),
               ElevatedButton(
-                  onPressed: _homePageNotifier.lotteryStart,
+                  onPressed: _homePageNotifier.loopLottery,
                   child: const Text("抽選"))
             ],
           )),
