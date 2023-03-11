@@ -80,11 +80,11 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
         case 0:
           setIndex(num.indexs[0], num.indexs[1], num.indexs[0]);
           await setAppearenceTime(500, 500, 500);
-          await Future.delayed(const Duration(milliseconds: 500));
+          await Future.delayed(const Duration(milliseconds: 1000));
           break;
         default:
           setIndex(num.indexs[0], num.indexs[1], num.indexs[2]);
-          await setAppearenceTime(500, 500, 500);
+          await setAppearenceTime(300, 300, 300);
           await Future.delayed(const Duration(milliseconds: 500));
       }
     }
