@@ -29,7 +29,7 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
   }
 
   setResult() {
-    var temp = math.Random().nextInt(10);
+    var temp = math.Random().nextInt(8);
     var resultState = true;
     if (temp == 1) {
       return resultState = true;
