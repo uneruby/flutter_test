@@ -24,6 +24,7 @@ mixin _$HomePageState {
   bool get visibleR => throw _privateConstructorUsedError;
   bool get result => throw _privateConstructorUsedError;
   bool get loopState => throw _privateConstructorUsedError;
+  double get handleAngle => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomePageStateCopyWith<HomePageState> get copyWith =>
@@ -44,7 +45,8 @@ abstract class $HomePageStateCopyWith<$Res> {
       bool visibleC,
       bool visibleR,
       bool result,
-      bool loopState});
+      bool loopState,
+      double handleAngle});
 }
 
 /// @nodoc
@@ -68,6 +70,7 @@ class _$HomePageStateCopyWithImpl<$Res, $Val extends HomePageState>
     Object? visibleR = null,
     Object? result = null,
     Object? loopState = null,
+    Object? handleAngle = null,
   }) {
     return _then(_value.copyWith(
       indexL: null == indexL
@@ -102,6 +105,10 @@ class _$HomePageStateCopyWithImpl<$Res, $Val extends HomePageState>
           ? _value.loopState
           : loopState // ignore: cast_nullable_to_non_nullable
               as bool,
+      handleAngle: null == handleAngle
+          ? _value.handleAngle
+          : handleAngle // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -122,7 +129,8 @@ abstract class _$$_HomePageStateCopyWith<$Res>
       bool visibleC,
       bool visibleR,
       bool result,
-      bool loopState});
+      bool loopState,
+      double handleAngle});
 }
 
 /// @nodoc
@@ -144,6 +152,7 @@ class __$$_HomePageStateCopyWithImpl<$Res>
     Object? visibleR = null,
     Object? result = null,
     Object? loopState = null,
+    Object? handleAngle = null,
   }) {
     return _then(_$_HomePageState(
       indexL: null == indexL
@@ -178,6 +187,10 @@ class __$$_HomePageStateCopyWithImpl<$Res>
           ? _value.loopState
           : loopState // ignore: cast_nullable_to_non_nullable
               as bool,
+      handleAngle: null == handleAngle
+          ? _value.handleAngle
+          : handleAngle // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -193,7 +206,8 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
       this.visibleC = true,
       this.visibleR = true,
       this.result = false,
-      this.loopState = false});
+      this.loopState = false,
+      this.handleAngle = 0});
 
   @override
   @JsonKey()
@@ -219,10 +233,13 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
   @override
   @JsonKey()
   final bool loopState;
+  @override
+  @JsonKey()
+  final double handleAngle;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomePageState(indexL: $indexL, indexC: $indexC, indexR: $indexR, visibleL: $visibleL, visibleC: $visibleC, visibleR: $visibleR, result: $result, loopState: $loopState)';
+    return 'HomePageState(indexL: $indexL, indexC: $indexC, indexR: $indexR, visibleL: $visibleL, visibleC: $visibleC, visibleR: $visibleR, result: $result, loopState: $loopState, handleAngle: $handleAngle)';
   }
 
   @override
@@ -237,7 +254,8 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
       ..add(DiagnosticsProperty('visibleC', visibleC))
       ..add(DiagnosticsProperty('visibleR', visibleR))
       ..add(DiagnosticsProperty('result', result))
-      ..add(DiagnosticsProperty('loopState', loopState));
+      ..add(DiagnosticsProperty('loopState', loopState))
+      ..add(DiagnosticsProperty('handleAngle', handleAngle));
   }
 
   @override
@@ -256,12 +274,14 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
                 other.visibleR == visibleR) &&
             (identical(other.result, result) || other.result == result) &&
             (identical(other.loopState, loopState) ||
-                other.loopState == loopState));
+                other.loopState == loopState) &&
+            (identical(other.handleAngle, handleAngle) ||
+                other.handleAngle == handleAngle));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, indexL, indexC, indexR, visibleL,
-      visibleC, visibleR, result, loopState);
+      visibleC, visibleR, result, loopState, handleAngle);
 
   @JsonKey(ignore: true)
   @override
@@ -279,7 +299,8 @@ abstract class _HomePageState implements HomePageState {
       final bool visibleC,
       final bool visibleR,
       final bool result,
-      final bool loopState}) = _$_HomePageState;
+      final bool loopState,
+      final double handleAngle}) = _$_HomePageState;
 
   @override
   int get indexL;
@@ -297,6 +318,8 @@ abstract class _HomePageState implements HomePageState {
   bool get result;
   @override
   bool get loopState;
+  @override
+  double get handleAngle;
   @override
   @JsonKey(ignore: true)
   _$$_HomePageStateCopyWith<_$_HomePageState> get copyWith =>

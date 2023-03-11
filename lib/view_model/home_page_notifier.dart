@@ -49,9 +49,14 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
     //print("setResult: 更新後の値 ${state.result}");
   }
 
+  void setAngle() {
+    state = state.copyWith(handleAngle: 60);
+  }
+
   // 抽選開始
   Future lotteryStart() async {
     //print(state.visibleL);
+    setAngle();
     await decideResult();
     if (state.result) {
       // 演出決定用の乱数生成
@@ -62,7 +67,7 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
         case 0:
           setIndex(num.indexs[0], num.indexs[0], num.indexs[0]);
           await setAppearenceTime(500, 500, 500);
-          state = state.copyWith(loopState: false);
+          state = state.copyWith(loopState: false, handleAngle: 0);
       }
     } else {
       // 演出決定用の乱数生成
@@ -73,10 +78,12 @@ class HomePageNotifier extends StateNotifier<HomePageState> {
         case 0:
           setIndex(num.indexs[0], num.indexs[1], num.indexs[0]);
           await setAppearenceTime(500, 500, 500);
+          await Future.delayed(const Duration(milliseconds: 500));
           break;
         default:
           setIndex(num.indexs[0], num.indexs[1], num.indexs[2]);
           await setAppearenceTime(500, 500, 500);
+          await Future.delayed(const Duration(milliseconds: 500));
       }
     }
   }
